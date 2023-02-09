@@ -49,7 +49,7 @@ class LoopClosing;
 class System
 {
 public:
-    // Input sensor
+    // Input sensor 传感器类型
     enum eSensor{
         MONOCULAR=0,
         STEREO=1,
@@ -139,9 +139,11 @@ private:
     // Tracker. It receives a frame and computes the associated camera pose.
     // It also decides when to insert a new keyframe, create some new MapPoints and
     // performs relocalization if tracking fails.
+    // 追踪器
     Tracking* mpTracker;
 
     // Local Mapper. It manages the local map and performs local bundle adjustment.
+    // 局部建图器
     LocalMapping* mpLocalMapper;
 
     // Loop Closer. It searches loops with every new keyframe. If there is a loop it performs
@@ -156,8 +158,11 @@ private:
 
     // System threads: Local Mapping, Loop Closing, Viewer.
     // The Tracking thread "lives" in the main execution thread that creates the System object.
+    // 局部建图线程
     std::thread* mptLocalMapping;
+    // 回环检测线程
     std::thread* mptLoopClosing;
+    // 查看器线程
     std::thread* mptViewer;
 
     // Reset flag

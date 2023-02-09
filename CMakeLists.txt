@@ -48,6 +48,7 @@ ${Pangolin_INCLUDE_DIRS}
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
+# 使用指定的源文件向工程中添加一个库 动态库 ORB_SLAM2
 add_library(${PROJECT_NAME} SHARED
 src/System.cc
 src/Tracking.cc
@@ -70,6 +71,7 @@ src/Initializer.cc
 src/Viewer.cc
 )
 
+# 动态库连接
 target_link_libraries(${PROJECT_NAME}
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
